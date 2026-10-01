@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    padding: 20px;
+
+    background-color: #a9c9f5;
+
+    font-family: "Times New Roman", serif;
+    font-size: 18px;
+}
+
+.container {
+    width: 700px;
+    margin: 0 auto;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+
+.logo {
+    width: 370px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    background-color: #82eeee;
+
+    border: 1px solid black;
+    border-radius: 15px;
+
+    box-shadow: 8px 8px 0 #777;
+
+    font-weight: bold;
+}
+
+.logo-top {
+    font-size: 36px;
+
+    border-bottom: 4px solid black;
+}
+
+.logo-bottom {
+    font-size: 36px;
+}
+
+/* =========================
+   TITLE
+   ========================= */
+
+h1 {
+    text-align: center;
+
+    font-size: 32px;
+
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    text-align: center;
+
+    margin-bottom: 5px;
+}
+
+/* =========================
+   TABLE
+   ========================= */
+
+table {
+    width: 100%;
+
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+td {
+    vertical-align: top;
+}
+
+.label {
+    width: 230px;
+}
+
+/* =========================
+   INPUT
+   ========================= */
+
+input[type="text"] {
+    height: 27px;
+
+    box-sizing: border-box;
+}
+
+.short-input {
+    width: 145px;
+}
+
+.normal-input {
+    width: 265px;
+}
+
+.city-input {
+    width: 185px;
+}
+
+.state-input {
+    width: 55px;
+}
+
+.zip-input {
+    width: 95px;
+}
+
+.country-input {
+    width: 185px;
+}
+
+.medium-input {
+    width: 185px;
+}
+
+/* =========================
+   SELECT
+   ========================= */
+
+select {
+    width: 185px;
+    height: 27px;
+
+    font-size: 16px;
+}
+
+/* =========================
+   RADIO + CHECKBOX
+   ========================= */
+
+.option-grid {
+    display: grid;
+
+    grid-template-columns: 175px 250px;
+
+    row-gap: 5px;
+}
+
+/* =========================
+   ĐƯỜNG NGANG
+   ========================= */
+
+hr {
+    border: 0;
+
+    border-top: 2px solid #777;
+
+    margin: 12px 0;
+}
+
+/* =========================
+   COMMENTS
+   ========================= */
+
+textarea {
+    width: 440px;
+    height: 125px;
+
+    resize: none;
+
+    box-sizing: border-box;
+}
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.buttons {
+    text-align: center;
+
+    margin-top: 8px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    font-size: 16px;
+
+    padding: 4px 15px;
+
+    cursor: pointer;
+}
