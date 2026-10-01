@@ -1,0 +1,286 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Online Classifieds Search Form</title>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="container">
+        <!-- TIÊU ĐỀ -->
+        <h1>Online Classifieds Search Form</h1>
+        <hr>
+        <form id="classifiedForm">
+
+            <!-- =====================================
+                1. CLASSIFIED SECTION
+                ===================================== -->
+            <div class="section">
+                <h3>
+                    1) Search for a classified in the following sections:
+                </h3>
+                <div class="radio-grid">
+                    <label>
+                        <input
+                            type="radio"
+                            name="section"
+                            value="Employment"
+                        >
+                        Employment
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="section"
+                            value="Personal"
+                        >
+                        Personal
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="section"
+                            value="For Sale"
+                            checked
+                        >
+                        For Sale
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="section"
+                            value="Miscellaneous"
+                        >
+                        Miscellaneous
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="section"
+                            value="Housing"
+                        >
+                        Housing
+                    </label>
+                    <label>
+                        <input
+                            type="radio"
+                            name="section"
+                            value="All"
+                        >
+                        All of the above
+                    </label>
+                </div>
+            </div>
+            <!-- =====================================
+                2. PUBLICATIONS
+                ===================================== -->
+            <div class="section">
+                <h3>
+                    2) Search the following publications:
+                </h3>
+                <div class="publication-grid">
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="publication"
+                            value="Midwest Times"
+                            checked
+                        >
+                        Midwest Times
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="publication"
+                            value="Modern News"
+                        >
+                        Modern News
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="publication"
+                            value="Employment Today"
+                        >
+                        Employment Today
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="publication"
+                            value="Great Lakes Classifieds"
+                            checked
+                        >
+                        Great Lakes Classifieds
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="publication"
+                            value="Middleton Daily"
+                        >
+                        Middleton Daily
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="publication"
+                            value="Cashtown Daily News"
+                        >
+                        Cashtown Daily News
+                    </label>
+                </div>
+            </div>
+            <!-- =====================================
+                3. DATE
+                ===================================== -->
+            <div class="section date-section">
+                <strong>3) From</strong>
+                <input
+                    type="text"
+                    name="fromDate"
+                    placeholder="mm/dd/yy"
+                >
+                <span>to</span>
+                <input
+                    type="text"
+                    name="toDate"
+                    placeholder="mm/dd/yy"
+                >
+                <span>.</span>
+            </div>
+            <!-- ====================================
+                4. KEYWORDS
+                ===================================== -->
+            <div class="section">
+                <h3>
+                    4) Enter a few keywords to describe the classified.
+                </h3>
+                <input
+                    type="text"
+                    name="keywords"
+                    id="keywords"
+                    class="keyword-input"
+                >
+            </div>
+            <!-- =====================================
+                5. ACTIONS
+                ===================================== -->
+            <div class="section">
+                <h3>
+                    5) Click one of the options below:
+                </h3>
+                <div class="actions">
+                    <!-- SEARCH -->
+                    <img
+                        src="Search.gif"
+                        alt="Search"
+                        title="Search"
+                        class="action-img"
+                        onclick="searchClassified()"
+                    >
+                    <!-- HELP -->
+                    <img
+                        src="Help.gif"
+                        alt="Help"
+                        title="Help"
+                        class="action-img"
+                        onclick="openHelp()"
+                    >
+                    <!-- CANCEL -->
+                    <img
+                        src="Cancel.gif"
+                        alt="Cancel"
+                        title="Cancel"
+                        class="action-img"
+                        onclick="resetForm()"
+                    >
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        /*
+            SEARCH
+            Giả lập chức năng tìm kiếm
+        */
+        function searchClassified() {
+            // Lấy section đang được chọn
+            const section = document.querySelector(
+                'input[name="section"]:checked'
+            );
+            // Lấy keywords
+            const keywords =
+                document.getElementById("keywords").value;
+            // Kiểm tra section
+            if (!section) {
+
+                alert("Please select a section.");
+
+                return;
+            }
+            // Lấy publications đã chọn
+            const publicationElements =
+                document.querySelectorAll(
+                    'input[name="publication"]:checked'
+                );
+            let publications = [];
+            publicationElements.forEach(function(item) {
+                publications.push(item.value);
+            });
+            // Lấy ngày
+            const fromDate =
+                document.querySelector(
+                    'input[name="fromDate"]'
+                ).value;
+            const toDate =
+                document.querySelector(
+                    'input[name="toDate"]'
+                ).value;
+            // Hiển thị kết quả giả lập
+            alert(
+                "SEARCH INFORMATION\n\n" +
+                "Section: " +
+                section.value +
+                "\n\nPublications: " +
+                publications.join(", ") +
+                "\n\nFrom: " +
+                fromDate +
+                "\nTo: " +
+                toDate +
+                "\n\nKeywords: " +
+                keywords
+            );
+        }
+        /*
+            HELP
+        */
+        function openHelp() {
+
+            alert(
+                "ONLINE CLASSIFIEDS HELP\n\n" +
+
+                "1. Select a classified section.\n" +
+
+                "2. Select one or more publications.\n" +
+
+                "3. Enter the date range.\n" +
+
+                "4. Enter keywords.\n" +
+
+                "5. Click Search to start searching."
+            );
+        }
+        /*
+            CANCEL
+            Xóa dữ liệu trên Form
+        */
+        function resetForm() {
+
+            document
+                .getElementById("classifiedForm")
+                .reset();
+        }
+    </script>
+    </body>
+</html>
